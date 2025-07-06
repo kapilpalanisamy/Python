@@ -103,17 +103,40 @@ class Tree:
         self.inorder_helper(proc.left)
         print( proc.data,end=' ')
         self.inorder_helper ( proc.right )
-        
-        
-        
-        
+    def preorder(self):
+        print()
+        self.preorder_helper(self.root)
+    def preorder_helper(self,proc):
+        if proc==None:
+            return
+        print(proc.data,end=' ')
+        self.preorder_helper(proc.left)
+        self.preorder_helper(proc.right)
+    def postorder(self):
+        print()
+        self.postorder_helper(self.root)
+    def postorder_helper(self,proc):
+        if proc==None:
+            return
+        self.postorder_helper(proc.left)
+        self.postorder_helper(proc.right)
+        print(proc.data,end=' ')
+# Tree Tester
 a=Tree()
 data = [40, 20, 60, 10, 30, 50, 70, 5, 15, 25, 35, 45, 55, 65, 75]
 for val in data:
     a.add(val)
 print(a.no_of_nodes)
 a.draw()
+print("Inorder Traversal:")
 a.inorder()
+print("\nPreorder Traversal:")
+a.preorder()
+print("\nPostorder Traversal:")
+a.postorder()
+a.delete(20)
+print("\nAfter deleting 20:")
+a.draw()
 
         
     
